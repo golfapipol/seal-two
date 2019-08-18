@@ -3,14 +3,12 @@ package fizzbuzz
 import "fmt"
 
 func FizzBuzz(number int) string {
-	if number%15 == 0 {
-		return "FizzBuzz"
-	}
-	if number%3 == 0 {
-		return "Fizz"
-	}
-	if number%5 == 0 {
-		return "Buzz"
+	words := []string{"FizzBuzz", "Buzz", "Fizz"}
+	mod := []int{15, 5, 3}
+	for index := range mod {
+		if number%mod[index] == 0 {
+			return words[index]
+		}
 	}
 	return fmt.Sprintf("%d", number)
 }
