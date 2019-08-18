@@ -3,11 +3,14 @@ package fizzbuzz
 import "fmt"
 
 func FizzBuzz(number int) string {
-	words := []string{"FizzBuzz", "Buzz", "Fizz"}
-	mod := []int{15, 5, 3}
+	mod := map[int]string{
+		15: "FizzBuzz",
+		5:  "Buzz",
+		3:  "Fizz",
+	}
 	for index := range mod {
-		if number%mod[index] == 0 {
-			return words[index]
+		if number%index == 0 {
+			return mod[index]
 		}
 	}
 	return fmt.Sprintf("%d", number)
